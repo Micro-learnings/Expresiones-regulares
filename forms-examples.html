@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>RegExp Forms</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        form {
+            padding: 60px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, .1);
+        }
+    </style>
+</head>
+
+<body>
+    <section class="container">
+
+        <form action="#" method="#">
+            <div class="form-row">
+                <div class="col-4">
+                    <p>Indica un código postal (cuatro dígitos)</p>
+                </div>
+                <div class="col-4">
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col-4">
+                    <button type="submit" class="btn btn-dark btn-md btn-block">Enviar</button>
+                </div>
+            </div>
+        </form>
+
+
+        <form action="#" method="#">
+            <div class="form-row">
+                <div class="col-4">
+                    <p>Indica una matrícula (cuatro dígitos y dos letras mayúsculas)</p>
+                </div>
+                <div class="col-4">
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col-4">
+                    <button type="submit" class="btn btn-dark btn-md btn-block">Enviar</button>
+                </div>
+            </div>
+        </form>
+
+
+        <form action="#" method="#">
+            <div class="form-row">
+                <div class="col-4">
+                    <p>Indica una dirección de email (texto, arroba, texto, punto, texto)</p>
+                </div>
+                <div class="col-4">
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col-4">
+                    <button type="submit" class="btn btn-dark btn-md btn-block">Enviar</button>
+                </div>
+            </div>
+        </form>
+
+
+
+        <form action="#" method="#">
+            <div class="form-row">
+                <div class="col-4">
+                    <p>Indica cualquier texto (no dejes el campo vacío ni introduzcas sólo espacios)</p>
+                </div>
+                <div class="col-4">
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col-4">
+                    <button type="submit" class="btn btn-dark btn-md btn-block">Enviar</button>
+                </div>
+            </div>
+        </form>
+
+
+
+        <form action="#" method="#">
+            <div class="form-row">
+                <div class="col-4">
+                    <p>Indica un número de DNI (tanto nacional como extranjero)</p>
+                </div>
+                <div class="col-4">
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col-4">
+                    <button type="submit" class="btn btn-dark btn-md btn-block">Enviar</button>
+                </div>
+            </div>
+        </form>
+
+
+
+
+        <form action="#" method="#">
+            <div class="form-row">
+                <div class="col-4">
+                    <p>Indica una contraseña de longitud mínima 7, con una mayúscula, una minúscula, un número y un
+                        carater especial</p>
+                </div>
+                <div class="col-4">
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col-4">
+                    <button type="submit" class="btn btn-dark btn-md btn-block">Enviar</button>
+                </div>
+            </div>
+        </form>
+
+
+    </section>
+
+
+    <script>
+        const forms = document.getElementsByTagName('form')
+
+        // Cuatro dígitos
+        forms[0].onsubmit = e => {
+            e.preventDefault()
+            const inputValue = e.target[0].value
+            inputValue.match(/^\d{4}$/) ? alert("Has cumplido la instrucción. Enviando datos.") : alert("Valor incorrecto, merluzo!")
+        }
+
+        // Una matrícula
+        forms[1].onsubmit = e => {
+            e.preventDefault()
+            const inputValue = e.target[0].value
+            inputValue.match(/^\d{4}[A-Z]{2}$/) ? alert("Has cumplido la instrucción. Enviando datos.") : alert("Valor incorrecto, merluzo!")
+        }
+
+        // Dirección de email
+        forms[2].onsubmit = e => {
+            e.preventDefault()
+            const inputValue = e.target[0].value
+            inputValue.match(/^\S+@\S+\.\S+$/) ? alert("Has cumplido la instrucción. Enviando datos.") : alert("Valor incorrecto, merluzo!")
+        }
+
+        // No dejar el campo vacío
+        forms[3].onsubmit = e => {
+            e.preventDefault()
+            const inputValue = e.target[0].value
+            !inputValue.match(/^\s+$/) && inputValue.length ? alert("Has cumplido la instrucción. Enviando datos.") : alert("Valor incorrecto, merluzo!")
+        }
+
+        // Número de DNI
+        forms[4].onsubmit = e => {
+            e.preventDefault()
+            const inputValue = e.target[0].value
+            inputValue.match(/^\d{10}[A-Z]|X\d{10}[A-Z]$/) ? alert("Has cumplido la instrucción. Enviando datos.") : alert("Valor incorrecto, merluzo!")
+        }
+
+        // Contraseña puñetera
+        forms[5].onsubmit = e => {
+            e.preventDefault()
+            const inputValue = e.target[0].value
+            inputValue.match(/[0-9]/) && inputValue.match(/[A-Z]/) && inputValue.match(/[a-z]/) && inputValue.match(/[!$*]/) && inputValue.length >= 6 ? alert("Has cumplido la instrucción. Enviando datos.") : alert("Valor incorrecto, merluzo!")
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>
